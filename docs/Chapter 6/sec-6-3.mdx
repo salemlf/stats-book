@@ -1,0 +1,70 @@
+import ex613ROI from '@site/static/images/ch-6/sec-6-3/ex-6-13-roi.png'
+
+# 6.3: The Method of Distribution Functions
+
+:::info[Summary of the Distribution Function Method]
+
+Let $U$ be a function of the random variables $Y_1, Y_2, ..., Y_n$.
+
+1. Find the the region $U = u$ in the $(y_1, y_2, ..., y_n)$ space.
+
+2. Find the region $U \leq u$.
+
+3. Find $F_U(u) = P(U \leq u)$ by integrating $f(y_1, y_2, ..., y_n)$ over the region $U \leq u$.
+
+4. Find the density function $f_U(u)$ by differentiating $F_U(u)$. Thus, $f_U(u) = dF_U(u)/du$.
+
+:::
+
+<details>
+  <summary>
+    Example 6.5
+  </summary>
+  <div>
+    Let $U$ be a uniform random variable on the interval $(0, 1)$. Find a transformation $G(U)$ such that $G(U)$ possesses an exponential distribution with mean $\beta$.
+    <details>
+    <summary>Solution</summary>
+    <div>
+      If $U$ possesses a uniform distribution on the interval $(0, 1)$, then the distribution function of $U$ (see Example 4.38) is given by
+      $$
+      F_U(u) = 
+      \begin{cases}
+        0, & u < 0,\\
+        u, & 0 \leq u \leq 1,\\
+        1, & 1 > u.
+      \end{cases}
+      $$
+      Let $Y$ denote a random variable that has an exponential distribution with mean $\beta$. Then (see Section 4.6) $Y$ has distribution function
+      $$
+      F_Y(y) = 
+      \begin{cases}
+        0, & y < 0,\\
+         1 - e^{-y / \beta}, & y \geq 0.
+      \end{cases}
+      $$
+      Note that $F_Y(y)$ is strictly increasing on the interval $[0, \infty)$. Let $0 < u < 1$ and observe that there is a unique value $y$ such that $F_Y(y) = u$. Thus, $F_Y^{-1}(u), 0 < u < 1$, is well-defined. In this case, $F_Y(y) = 1 - e^{-y / \beta} = u$ if and only if $y = -\beta \ln(1 - u) = F_Y^{-1}(u)$. Consider the random variable $F_Y^{-1}(U) = -\beta \ln(1 - U)$ and observe that, if $y > 0$,
+      $$
+      \begin{aligned}
+        P(F_Y^{-1}(U) \leq y) & = P[-\beta \ln(1 - U) \leq y]\\
+        & = P[\ln(1 - U) \geq -y / \beta]\\
+        & = P(U \leq 1 - e^{-y / \beta})\\
+        & = 1 - e^{-y / \beta}.
+      \end{aligned}
+      $$
+      Also, $P[F_Y^{-1}(U) \leq y] = 0$ if $y \leq 0$. Thus, $F_Y^{-1}(U) = -\beta \ln(1 - U)$ possesses an exponential distribution with mean $\beta$, as desired.
+    </div>
+    </details>
+  </div>
+</details>
+
+## Exercises
+
+6.13) If $Y_1$ and $Y_2$ are independent exponential random variables, both with mean $\beta$, find the density function for their sum. (In Exercise 5.7, we considered two independent exponential random variables, both with mean $1$ and determined $P(Y_1 + Y_2 \leq 3)$.)
+
+<details>
+  <summary>Solution</summary>
+  <div>
+    Letting $U = Y_1 + Y_2$, we can start by finding $F_U(u) = P(U \leq u) = P(Y_1 + Y_2 \leq u) = P(Y_2 \leq u - Y_1)$.
+    <img src={ex613ROI} />
+  </div>
+</details>
