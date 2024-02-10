@@ -227,7 +227,7 @@ If $Y$ possesses a Pareto distribution with parameters $\alpha$ and $\beta$, pro
 <details>
   <summary>Solution</summary>
   <div>
-  Note that $x < 0 < \beta \Longleftrightarrow \frac{1}{x} < 0 < \beta$, that $0 \leq x \leq \beta^{-1} \Longrightarrow 0 \leq \beta \leq \frac{1}{x}$, and $x > \beta^{-1} \Longleftrightarrow \beta > \frac{1}{x}$.
+  Note that $x < 0 < \beta \Longleftrightarrow \frac{1}{x} < 0 < \beta$, that $0 \leq x \leq \beta^{-1} \Longrightarrow 0 \leq \beta \leq \frac{1}{x}$, and that $x > \beta^{-1} \Longleftrightarrow \beta > \frac{1}{x}$.
   Thus,
   $$
   \begin{align*}
@@ -258,6 +258,35 @@ a) distribution of the random variable $W = Y^2$.
 
 b) distribution of the random variable $W = \sqrt{Y}$.
 
+<details>
+  <summary>Solution</summary>
+  <div>
+    a) First, $P(W \leq w) = P(Y^2 \leq w) = P(-\sqrt{w} \leq Y \leq \sqrt{w}) = P(0 \leq Y \leq \sqrt{w})$.
+    Since $0 \leq \sqrt{w} \leq 1 \Longleftrightarrow 0 \leq w \leq 1$, we thus have
+    $$
+    F_W(w) = 
+    \begin{cases}
+      P(W \leq w) = P(Y^2 \leq w) = 0, & w < 0,\\
+      P(W \leq w) = P(0 \leq Y \leq \sqrt{w})\\
+      = \int_{y = 0}^{y = \sqrt{w}} 1 dy = \sqrt{w}, & 0 \leq w \leq 1,\\
+      P(W \leq w) = P(0 \leq Y \leq \sqrt{w}) = 1, & 1 < w
+    \end{cases}
+    $$
+
+    b) First, $P(W \leq w) = P(\sqrt{Y} \leq w) = P(Y \leq w^2)$.
+    Since $0 \leq w^2 \leq 1 \Longleftrightarrow 0 \leq w \leq 1$, we have
+    $$
+    F_W(w) = 
+    \begin{cases}
+      P(W \leq w) = P(\sqrt{Y} \leq w) = 0, & w < 0,\\
+      P(W \leq w) = P(Y \leq w^2)\\
+      = \int_{y = 0}^{y = w^2} 1 dy = w^2, & 0 \leq w \leq 1,\\
+      P(W \leq w) = P(Y \leq w^2) = 1, & 1 < w
+    \end{cases}
+    $$
+  </div>
+</details>
+
 ### <u>6.21</u>
 
 Suppose that $Y$ is a random variable that takes on only integer values $1, 2, ...$.
@@ -265,11 +294,52 @@ Let $F(y)$ denote the distribution function of this random variable.
 As discussed in Section 4.2, this distribution function is a step function, and the magnitude of the step at each integer value is the probability that $Y$ takes on that value.
 Let $U$ be a continuous random variable that is uniformly distributed on the interval $(0, 1)$.
 Deﬁne a variable $X$ such that $X = k$ if and only if $F(k - 1) < U \leq F(k), k = 1, 2, ...$.
-Recall that $F(0) = 0$ because $Y$ takes on only positive integer values.
+Recall that $F(0) = 0$ because $Y$ takes on only *positive* integer values.
 Show that $P(X = i) = F(i) - F(i - 1) = P(Y = i), i = 1, 2, ...$.
 That is, $X$ has the same distribution as $Y$.
-[<em>Hint</em>: Recall Exercise 4.5.]
+[*Hint*: Recall Exercise 4.5.]
+
+<details>
+  <summary>Solution</summary>
+  <div>
+    $$
+    \begin{align*}
+      P(X = i) & = P(F(i - 1) < U \leq F(i))\\
+      & = \int_{u = F(i - 1)}^{u = F(i)} 1 du\\
+      & = F(i) - F(i - 1)\\
+      & = P(Y = i) \text{ for } i = 1, 2, ...
+    \end{align*}
+    $$
+  </div>
+</details>
 
 ### <u>6.22</u>
 
 Use the results derived in Exercises 4.6 and 6.21 to describe how to generate values of a geometrically distributed random variable.
+
+<details>
+  <summary>Solution</summary>
+  <div>
+    From Exercise 4.6, the distribution function for a geometric random variable $Y$ is
+    $$
+    F(y) = 
+    \begin{cases}
+      0, & y < 0,\\
+      1 - q^i, & i \leq y < i + 1, \text{ for } i = 0, 1, 2, ...
+    \end{cases}
+    $$
+    Let $U$ be a uniform random variable over the interval $(0, 1)$.
+    Then, for an observed value $U = u \in [0, 1]$, $u$ will exist in the interval $F(i - 1) = 1 - q^{i - 1} < u \leq 1 - q^i = F(i)$ for some $i = 1, 2, 3...$
+    We can also see that, for all $i = 1, 2, 3, ...$,
+    $$
+    \begin{align*}
+      1 - q^{i - 1} < u \leq 1 - q^i & \Longleftrightarrow -q^{i - 1} < u - 1 \leq -q^i\\
+      & \Longleftrightarrow q^{i - 1} > 1 - u \geq q^i\\
+      & \Longleftrightarrow (i - 1) \ln(q) > \ln(1 - u) \geq i \ln(q)\\
+      & \Longleftrightarrow i - 1 < \frac{\ln(1 - u)}{\ln(q)} \leq i\\
+      & \Longleftrightarrow \left\lceil \frac{\ln(1 - u)}{\ln(q)} \right\rceil = i.
+    \end{align*}
+    $$
+    Therefore, for a geometrically distributed random variable $Y$ with parameter $p$, and thus $q = 1 - p$, we can use an observed value of the uniformly distributed random variable $U$ over the interval $(0, 1)$ to obtain a generate a value of the geometrically distributed random variable $Y$ by calculating $\left\lceil \frac{\ln(1 - u)}{\ln(q)} \right\rceil$.
+  </div>
+</details>
