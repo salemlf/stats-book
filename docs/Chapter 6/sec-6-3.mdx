@@ -57,14 +57,219 @@ Let $U$ be a function of the random variables $Y_1, Y_2, ..., Y_n$.
   </div>
 </details>
 
-## Exercises
+## <u>Exercises</u>
 
-6.13) If $Y_1$ and $Y_2$ are independent exponential random variables, both with mean $\beta$, find the density function for their sum. (In Exercise 5.7, we considered two independent exponential random variables, both with mean $1$ and determined $P(Y_1 + Y_2 \leq 3)$.)
+### <u>6.13</u>
+
+If $Y_1$ and $Y_2$ are independent exponential random variables, both with mean $\beta$, find the density function for their sum. (In Exercise 5.7, we considered two independent exponential random variables, both with mean $1$ and determined $P(Y_1 + Y_2 \leq 3)$.)
 
 <details>
   <summary>Solution</summary>
   <div>
     Letting $U = Y_1 + Y_2$, we can start by finding $F_U(u) = P(U \leq u) = P(Y_1 + Y_2 \leq u) = P(Y_2 \leq u - Y_1)$.
-    <img src={ex613ROI} />
+    The image below shows the support of $f_{Y_1, Y_2}$, quadrant I of the $y_1 y_2$-plane, in red, and the blue triangle is the intersection of that support and the region described by $y_1 + y_2 \leq u$, which is equivalent to $y_2 \leq u - y_1.$
+    <img src={ex613ROI}/>
+    The hypotenuse of the blue triangle is a segment of the line $y_2 = u - y_1$.
+    The point where this line intersects the $y_1$ axis can be found by solving $y_2 = u - y_1$ for $y_1$ when $y_2 = 0$ to get $y_1 = u$, hence the point $(u, 0)$.
+    The point where the line intersects the $y_2$ axis can be found by evaluating $y_2 = u - y_1$ when $y_1 = 0$, hence the point $(0, u)$.
+    As $u$ goes down to $0$, the blue triangle degenerates to nothingness, and as $u$ goes to $\infty$, the blue triangle covers more and more of the support of $f_{Y_1, Y_2}$.
+    Thus, the support of $f_U$ will be $0 \leq u < \infty$. Then
+    $$
+    \begin{align*}
+      F_U(u) & = 
+      \begin{cases}
+        0, & u < 0,\\
+        \int_{y_1 = 0}^{y_1 = u} \int_{y_2 = 0}^{y_2 = u - y_1} \frac{1}{\beta^2} e^{-(1 / \beta) y_1 - (1 / \beta) y_2} dy_2 dy_1\\
+        = \int_{y_1 = 0}^{y_1 = u} \left[-\frac{1}{\beta} e^{-(1 / \beta) y_1 - (1 / \beta) y_2} \right]_{y_2 = 0}^{y_2 = u - y_1} dy_1\\
+        = \int_{y_1 = 0}^{y_1 = u} \left[\left(-\frac{1}{\beta} e^{-(1 / \beta) y_1 - (1 / \beta) (u - y_1)} \right) - \left(-\frac{1}{\beta} e^{-(1 / \beta) y_1 - (1 / \beta) (0)} \right) \right] dy_1\\
+        = \int_{y_1 = 0}^{y_1 = u} \left[\frac{1}{\beta} e^{-(1 / \beta) y_1} - \frac{1}{\beta} e^{-(1 / \beta) u} \right] dy_1\\
+        = \left[-e^{-(1 / \beta) y_1} - \frac{1}{\beta} e^{-(1 / \beta) u} y_1 \right]_{y_1 = 0}^{y_1 = u}\\
+        = \left(-e^{-(1 / \beta) (u)} - \frac{1}{\beta} e^{-(1 / \beta) u} (u) \right) - \left(-e^{-(1 / \beta) (0)} - \frac{1}{\beta} e^{-(1 / \beta) u} (0) \right)\\
+        = 1 - e^{-u / \beta} - \frac{1}{\beta} ue^{-u / \beta}
+      \end{cases}\\
+      \implies f_U(u) & = 
+      \begin{cases}
+        0, & u < 0,\\
+        \frac{1}{\beta} e^{-u / \beta} - \left(\frac{1}{\beta} e^{-u / \beta} + \frac{1}{\beta^2} ue^{-u / \beta} \right)\\
+        = -\frac{1}{\beta^2} ue^{-u / \beta}, & 0 \leq u
+      \end{cases}
+    \end{align*}
+    $$
   </div>
 </details>
+
+### <u>6.14</u>
+
+In a process of sintering (heating) two types of copper powder (see Exercise 5.152), the density function for $Y_1$, the volume proportion of solid copper in a sample, was given by
+$$
+f_1(y_1) = 
+\begin{cases}
+  6y_1 (1 - y_1), & 0 \leq y_1 \leq 1,\\
+  0, & \text{elsewhere.}
+\end{cases}
+$$
+The density function for $Y_2$, the proportion of type A crystals among the solid copper, was given as
+$$
+f_2(y_2) = 
+\begin{cases}
+  3y_2^2, & 0 \leq y_2 \leq 1,\\
+  0, & \text{elsewhere.}
+\end{cases}
+$$
+The variable $U = Y_1 Y_2$ gives the proportion of the sample volume due to type A crystals.
+If $Y_1$ and $Y_2$ are independent, find the probability density function for $U$.
+
+### <u>6.15</u>
+
+Let $Y$ have a distribution function given by
+$$
+F(y) = 
+\begin{cases}
+  0, & y < 0,\\
+  1 - e^{-y^2}, & y \geq 0.
+\end{cases}
+$$
+Find a transformation $G(U)$ such that, if $U$ has a uniform distribution on the interval $(0, 1)$, $G(U)$ has the same distribution as $Y$.
+
+### <u>6.16</u>
+
+In Exercise 4.15, we determined that
+$$
+f(y) = 
+\begin{cases}
+  \frac{b}{y^2}, & y \geq b,\\
+  0, & \text{elsewhere,}
+\end{cases}
+$$
+is a bona fide probability density function for a random variable, $Y$.
+Assuming $b$ is a known constant and $U$ has a uniform distribution on the interval $(0, 1)$, transform $U$ to obtain a random variable with the same distribution as $Y$.
+
+### <u>6.17</u>
+
+A member of the power family of distributions has a distribution function given by
+$$
+F(y) = 
+\begin{cases}
+  0, & y < 0,\\
+  \left(\frac{y}{\theta} \right)^{\alpha}, & 0 \leq y \leq \theta,\\
+  1, & y > \theta,
+\end{cases}
+$$
+where $\alpha, \theta > 0$.
+
+a) Find the density function.
+
+b) For fixed values of $\alpha$ and $\theta$, find a transformation $G(U)$ so that $G(U)$ has a distribution function of $F$ when $U$ possesses a uniform $(0, 1)$ distribution.
+
+c) Given that a random sample of size $5$ from a uniform distribution on the interval $(0, 1)$ yielded the values $.2700$, $.6901$, $.1413$, $.1523$, and $.3609$, use the transformation derived in part (b) to give values associated with a random variable with a power family distribution with $\alpha = 2, \theta = 4$.
+
+### <u>6.18</u>
+
+A member of the Pareto family of distributions (often used in economics to model income distributions) has a distribution function given by
+$$
+F(y) = 
+\begin{cases}
+  0, & y < \beta,\\
+  1 - \left(\frac{\beta}{y} \right)^{\alpha}, & y \geq \beta,
+\end{cases}
+$$
+where $\alpha, \beta > 0$.
+
+a) Find the density function.
+
+b) For ﬁxed values of $\beta$ and $\alpha$, ﬁnd a transformation $G(U)$ so that $G(U)$ has a distribution function of $F$ when $U$ has a uniform distribution on the interval $(0, 1)$.
+
+c) Given that a random sample of size $5$ from a uniform distribution on the interval $(0, 1)$ yielded the values $.0058$, $.2048$, $.7692$, $.2475$ and $.6078$, use the transformation derived in part (b) to give values associated with a random variable with a Pareto distribution with $\alpha = 2, \beta = 3.$
+
+<details>
+  <summary>Solution</summary>
+  <div>
+    a)
+    $f(y) = 
+    \begin{cases}
+      0, & y < \beta,\\
+      \frac{\alpha \beta^{\alpha}}{y^{\alpha + 1}}, & y \geq \beta
+    \end{cases}$
+
+    b) If $y \geq \beta$, then
+    $$
+    F(y) = 1 - \left(\frac{\beta}{y} \right)^{\alpha} = u \Longleftrightarrow 1 - u = \left(\frac{\beta}{y} \right)^{\alpha} \Longleftrightarrow (1 - u)^{1 / \alpha} = \frac{\beta}{y} \Longleftrightarrow y = \frac{\beta}{(1 - u)^{1 / \alpha}}.
+    $$
+    Let $G(U) = \frac{\beta}{(1 - U)^{1 / \alpha}}$.
+    See that
+    $$
+    0 < \beta \leq u \Longleftrightarrow 0 < \frac{\beta}{u} \leq 1 \Longleftrightarrow 0 < \left(\frac{\beta}{u} \right)^{\alpha} \leq 1 \Longleftrightarrow 0 > -\left(\frac{\beta}{u} \right)^{\alpha} \geq -1 \Longleftrightarrow 1 > 1 - \left(\frac{\beta}{u} \right)^{\alpha} \geq 0
+    $$
+    meaning $\beta \leq u \implies P(G(U) \leq u) = P \left(\frac{\beta}{(1 - U)^{1 / \alpha}} \leq u \right) = P \left(U \leq 1 - \left(\frac{\beta}{u} \right)^{\alpha} \right) = 1 - \left(\frac{\beta}{u} \right)^{\alpha}$.
+    Additionally,
+    $$
+    1 - \left(\frac{\beta}{u} \right)^{\alpha} < 0 \Longleftrightarrow 1 < \left(\frac{\beta}{u} \right)^{\alpha} \Longleftrightarrow 1 < \frac{\beta}{u} \Longleftrightarrow u < \beta,
+    $$
+    so $u < \beta \implies P(G(U) \leq u) = P \left(U \leq 1 - \left(\frac{\beta}{u} \right)^{\alpha} < 0 \right) = 0$.
+    (Note, there are technically some problems with this when $u$ is negative, but we're ignoring these.) Thus,
+    $$
+    F_{G(U)}(u) = 
+    \begin{cases}
+      P(G(U) \leq u) = 0, & u < \beta,\\
+      P(G(U) \leq u) = 1 - \left(\frac{\beta}{u} \right)^{\alpha}, & \beta \leq u.
+    \end{cases}
+    $$
+
+    c) With $\alpha = 2$ and $\beta = 3$, we can run the given values through the transformation $G(u) = \frac{\beta}{(1 - u)^{1 / \alpha}} = \frac{3}{\sqrt{1 - u}}$ to obtain the Pareto values of $g(0.0058) = \frac{3}{\sqrt{1 - 0.0058}} \approx 3.00873802885, g(0.2048) = \frac{3}{\sqrt{1 - 0.2048}} \approx 3.36420978012, g(0.7692) = \frac{3}{\sqrt{1 - 0.7692}} \approx 6.24458170683, g(0.2475) = \frac{3}{\sqrt{1 - 0.2475}} \approx 3.45834250623,$ and $g(0.6078) = \frac{3}{\sqrt{1 - 0.6078}} \approx 4.79035236467$.
+  </div>
+</details>
+
+### <u>6.19</u>
+
+Refer to Exercises 6.17 and 6.18.
+If $Y$ possesses a Pareto distribution with parameters $\alpha$ and $\beta$, prove that $X = 1/Y$ has a power family distribution with parameters $\alpha$ and $\theta = \beta^{-1}$.
+
+<details>
+  <summary>Solution</summary>
+  <div>
+  Note that $x < 0 < \beta \Longleftrightarrow \frac{1}{x} < 0 < \beta$, that $0 \leq x \leq \beta^{-1} \Longrightarrow 0 \leq \beta \leq \frac{1}{x}$, and $x > \beta^{-1} \Longleftrightarrow \beta > \frac{1}{x}$.
+  Thus,
+  $$
+  \begin{align*}
+    F_{X}(x) & = P(X \leq x)\\
+    &  = P \left(\frac{1}{Y} \leq x \right)\\
+    & = 
+    \begin{cases}
+      P \left(\frac{1}{x} \geq Y \right) = 0, & x < 0\\
+      P \left(\frac{1}{x} \leq Y \right)\\
+      = 1 - P \left(Y \leq \frac{1}{x} \right)\\
+      = 1 - \left(1 - \left(\frac{\beta}{1/x} \right)^{\alpha} \right)\\
+      = (\frac{x}{\beta^{-1}})^{\alpha}, & 0 \leq x \leq \beta^{-1}\\
+      P \left(\frac{1}{x} \leq Y \right)\\
+      = 1 - P \left(Y \leq \frac{1}{x} \right)\\
+      = 1 - 0 = 1, & x > \beta^{-1}.
+    \end{cases}
+  \end{align*}
+  $$
+  </div>
+</details>
+
+### <u>6.20</u>
+
+Let the random variable $Y$ possess a uniform distribution on the interval $(0, 1)$.
+Derive the
+
+a) distribution of the random variable $W = Y^2$.
+
+b) distribution of the random variable $W = \sqrt{Y}$.
+
+### <u>6.21</u>
+
+Suppose that $Y$ is a random variable that takes on only integer values $1, 2, ...$.
+Let $F(y)$ denote the distribution function of this random variable.
+As discussed in Section 4.2, this distribution function is a step function, and the magnitude of the step at each integer value is the probability that $Y$ takes on that value.
+Let $U$ be a continuous random variable that is uniformly distributed on the interval $(0, 1)$.
+Deﬁne a variable $X$ such that $X = k$ if and only if $F(k - 1) < U \leq F(k), k = 1, 2, ...$.
+Recall that $F(0) = 0$ because $Y$ takes on only positive integer values.
+Show that $P(X = i) = F(i) - F(i - 1) = P(Y = i), i = 1, 2, ...$.
+That is, $X$ has the same distribution as $Y$.
+[<em>Hint</em>: Recall Exercise 4.5.]
+
+### <u>6.22</u>
+
+Use the results derived in Exercises 4.6 and 6.21 to describe how to generate values of a geometrically distributed random variable.
