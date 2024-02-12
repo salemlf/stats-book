@@ -1,0 +1,25 @@
+a) First, $P(W \leq w) = P(Y^2 \leq w) = P(-\sqrt{w} \leq Y \leq \sqrt{w}) = P(0 \leq Y \leq \sqrt{w})$.
+Since $0 \leq \sqrt{w} \leq 1 \Longleftrightarrow 0 \leq w \leq 1$, we thus have
+
+$$
+F_W(w) =
+\begin{cases}
+    P(W \leq w) = P(Y^2 \leq w) = 0, & w < 0,\\
+    P(W \leq w) = P(0 \leq Y \leq \sqrt{w})\\
+    = \int_{y = 0}^{y = \sqrt{w}} 1 dy = \sqrt{w}, & 0 \leq w \leq 1,\\
+    P(W \leq w) = P(0 \leq Y \leq \sqrt{w}) = 1, & 1 < w
+\end{cases}
+$$
+
+b) First, $P(W \leq w) = P(\sqrt{Y} \leq w) = P(Y \leq w^2)$.
+Since $0 \leq w^2 \leq 1 \Longleftrightarrow 0 \leq w \leq 1$, we have
+
+$$
+F_W(w) =
+\begin{cases}
+  P(W \leq w) = P(\sqrt{Y} \leq w) = 0, & w < 0,\\
+  P(W \leq w) = P(Y \leq w^2)\\
+  = \int_{y = 0}^{y = w^2} 1 dy = w^2, & 0 \leq w \leq 1,\\
+  P(W \leq w) = P(Y \leq w^2) = 1, & 1 < w
+\end{cases}
+$$
