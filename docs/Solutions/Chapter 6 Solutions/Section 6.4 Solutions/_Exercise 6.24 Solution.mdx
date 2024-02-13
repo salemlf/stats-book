@@ -1,0 +1,20 @@
+Letting $U = h(Y) = 3Y + 1$, $h(y)$ is increasing on $y > 0$, and $Y = \frac{U - 1}{3} = h^{-1}(U)$.
+Note that $\frac{u - 1}{3} > 0 \Longleftrightarrow u > 1$.
+Then $\left|\frac{dh^{-1}}{du} \right| = \frac{1}{3}$.
+Thus,
+
+$$
+\begin{align*}
+    f_U(u) & = f_Y[h^{-1}(u)] \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        \frac{1}{4} e^{- \left(\frac{u - 1}{3} \right) / 4}, & u > 1,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{3}\\
+    & =
+    \begin{cases}
+        \frac{1}{12} e^{-(u - 1) / 12}, & u > 1,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$

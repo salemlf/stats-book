@@ -1,0 +1,38 @@
+Recall that
+
+$$
+f_{Y_1, Y_2}(y_1, y_2) =
+\begin{cases}
+    e^{-(y_1 + y_2)}, & y_1 > 0, y_2 > 0,\\
+    0, & \text{elsewhere.}
+\end{cases}
+$$
+
+Let $U = \frac{Y_1 + Y_2}{2}$ and fix $Y_1$ to a value $y_1 > 0$ so that $U = \frac{y_1 + Y_2}{2} = h(Y_2)$ and $Y_2 = 2U - y_1 = h^{-1}(U)$.
+Then the joint density of $Y_1$ and $U$ will be
+
+$$
+f_{Y_1, U}(y_1, u) =
+\begin{cases}
+    f_{Y_1, Y_2}(y_1, h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    = e^{-(y_1 + (2u - y_1))} (2), & y_1 > 0, 2u - y_1 > 0\\
+    = 2e^{-2u}, & 0 < y_1 < 2u,\\
+    0, & \text{elsewhere.}
+\end{cases}
+$$
+
+Then the density function for $U$, which is the marginal density of $U$, is
+
+$$
+\begin{align*}
+    f_U(u) & = \int_{y_1 = -\infty}^{y_1 = \infty} f_{Y_1, U}(y_1, u) dy_1\\
+    & =
+    \begin{cases}
+        \int_{y_1 = 0}^{y_1 = 2u} 2e^{-2u} dy_1\\
+        = 2e^{-2u} y_1 \biggr|_{y_1 = 0}^{y_1 = 2u}\\
+        = 2e^{-2u} (2u) - 2e^{-2u} (0)\\
+        = 4ue^{-2u}, & 0 < 2u \Longleftrightarrow 0 < u,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$

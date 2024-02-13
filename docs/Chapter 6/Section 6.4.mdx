@@ -14,6 +14,8 @@ import ExCh6Num35 from "@site/docs/Exercises/Chapter 6 Exercises/Section 6.4 Exe
 import ExCh6Num36 from "@site/docs/Exercises/Chapter 6 Exercises/Section 6.4 Exercises/_Exercise 6.36.mdx";
 
 import ExCh6Num23Sol from "@site/docs/Solutions/Chapter 6 Solutions/Section 6.4 Solutions/_Exercise 6.23 Solution.mdx";
+import ExCh6Num24Sol from "@site/docs/Solutions/Chapter 6 Solutions/Section 6.4 Solutions/_Exercise 6.24 Solution.mdx";
+import ExCh6Num25Sol from "@site/docs/Solutions/Chapter 6 Solutions/Section 6.4 Solutions/_Exercise 6.25 Solution.mdx";
 
 # 6.4: The Method of Transformations
 
@@ -32,21 +34,100 @@ Let $U = h(Y)$, where $h(y)$ is either an increasing or decreasing function of $
 
 :::
 
+Example 6.8 is a nice, worked out example of how to use the method of transformations in a multivariate situation.
+
+:::tip[Example 6.8]
+
+Let $Y_1$ and $Y_2$ have a joint density function given by
+
+$$
+f(y_1, y_2) =
+\begin{cases}
+    e^{-(y_1 + y_2)}, & 0 \leq y_1, 0 \leq y_2,\\
+    0, & \text{elsewhere.}
+\end{cases}
+$$
+
+Find the density function for $U = Y_1 + Y_2$.
+
+<details>
+    <summary>Solution</summary>
+    <div>
+        This problem must be solved in two stages: First, we will find the joint density of $Y_1$ and $U$; second, we will find the marginal density of $U$.
+        The approach is to let $Y_1$ be fixed at a value $y_1 \geq 0$.
+        Then $U = y_1 + Y_2$, and we can consider the one-dimensional transformation problem in which $U = h(Y_2) = y_1 + Y_2$.
+        Letting $g(y_1, u)$ denote the joint density of $Y_1$ and $U$, we have, with $y_2 = u - y_1 = h^{-1}(u)$,
+
+        $$
+        g(y_1, u) =
+        \begin{cases}
+            f[y_1, h^{-1}(u)] \left|\frac{dh^{-1}}{du} \right| = e^{-(y_1 + u - y_1)} (1), & 0 \leq y_1, 0 \leq u - y_1,\\
+            0, & \text{elsewhere.}
+        \end{cases}
+        $$
+
+        Simplifying, we obtain
+
+        $$
+        g(y_1, u) =
+        \begin{cases}
+            e^{-u}, & 0 \leq y_1 \leq u,\\
+            0, & \text{elsewhere.}
+        \end{cases}
+        $$
+
+        (Notice that $Y_1 \leq U$.) The marginal density of $U$ is then given by
+
+        $$
+        \begin{align*}
+            f_U(u) & = \int_{-\infty}^{\infty} g(y_1, u) dy_1\\
+            & =
+            \begin{cases}
+                \int_{0}^{u} e^{-u} dy_1 = ue^{-u}, & 0 \leq u,\\
+                0, & \text{elsewhere.}
+            \end{cases}
+        \end{align*}
+        $$
+    </div>
+
+</details>
+
+:::
+
 ## <u>Exercises</u>
 
 ### <u>6.23</u>
 
 <ExCh6Num23 />
 
-Solution:
+<details>
+  <summary>Solution</summary>
+  <div>
+    <ExCh6Num23Sol />
+  </div>
+</details>
 
 ### <u>6.24</u>
 
 <ExCh6Num24 />
 
+<details>
+  <summary>Solution</summary>
+  <div>
+    <ExCh6Num24Sol />
+  </div>
+</details>
+
 ### <u>6.25</u>
 
 <ExCh6Num25 />
+
+<details>
+  <summary>Solution</summary>
+  <div>
+    <ExCh6Num25Sol />
+  </div>
+</details>
 
 ### <u>6.26</u>
 
