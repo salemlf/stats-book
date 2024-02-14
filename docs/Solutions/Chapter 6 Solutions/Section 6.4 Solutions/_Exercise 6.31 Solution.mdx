@@ -1,0 +1,30 @@
+Begin by fixing $Y_1 = y_1$ so that $U = h(Y_2) = Y_2 / y_1$ and $Y_2 = y_1 U = h^{-1}(U)$.
+Then the joint density of $Y_1$ and $U$ will be
+
+$$
+\begin{align*}
+    f_{Y_1, U}(y_1, u) & = f_{Y_1, Y_2}(y_1, h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & =
+    \begin{cases}
+        (1 / 8) y_1 e^{-(y_1 + (y_1 u)) / 2} \cdot \left|y_1 \right|\\
+        = \frac{1}{8} y_1^2 e^{-y_1 (1 + u) / 2}, & y_1 > 0, u > 0,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
+
+Thus, the marginal density of $U$, or simply the density of $U$, will be
+
+$$
+\begin{align*}
+    f_U(u) & = \int_{y_1 = -\infty}^{y_1 = \infty} f_{Y_1, U}(y_1, u) dy_1\\
+    & =
+    \begin{cases}
+        \int_{y_1 = 0}^{y_1 = \infty} \frac{1}{8} y_1^2 e^{-y_1 (1 + u) / 2} dy_1\\
+        = \frac{1}{8} \cdot \left(\frac{2}{1 + u} \right)^3 \Gamma(3) \int_{y_1 = 0}^{y_1 = \infty} \frac{y_1^{3 - 1} \exp(-y_1 (1 + u) / 2)}{[2/(1 + u)]^3 \Gamma(3)} dy_1\\
+        = \frac{1}{8} \cdot \frac{8}{(1 + u)^3} \cdot 2 \cdot 1\\
+        = \frac{2}{(1 + u)^3}, & u > 0,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
