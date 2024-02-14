@@ -1,0 +1,23 @@
+Letting $P = 2I^2 = h(I)$, we then have $I = \left(\frac{P}{2} \right)^{1 / 2} = h^{-1}(P)$, and $9 \leq \left(\frac{p}{2} \right)^{1 / 2} \leq 11 \Longleftrightarrow 162 \leq p \leq 242$.
+Additionally, note that $\left|\frac{dh^{-1}}{dp} \right| = \left|\frac{1}{2} \left(\frac{p}{2} \right)^{-1 / 2} \cdot \frac{1}{2} \right| = 2^{-3 / 2} p^{-1 / 2}$.
+Thus,
+
+$$
+\begin{align*}
+    f_P(p) & = f_I(h^{-1}(p)) \left|\frac{dh^{-1}}{dp} \right|\\
+    & = \left[
+    \begin{cases}
+        \frac{1}{11 - 9}, & 162 \leq p \leq 242,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot 2^{-3 / 2} p^{-1 / 2}\\
+    & =
+    \begin{cases}
+        2^{-5 / 2} p^{-1 / 2}, & 162 \leq p \leq 242,\\
+        0, & \text{elsewhere}
+    \end{cases}\\
+    & = \begin{cases}
+        \frac{1}{4 \sqrt{2p}}, & 162 \leq p \leq 242,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$

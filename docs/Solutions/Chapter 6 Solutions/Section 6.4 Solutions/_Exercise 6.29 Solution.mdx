@@ -1,0 +1,46 @@
+a) Letting $W = mV^2 / 2 = h(V)$ means $V = (2W / m)^{1 / 2} = h^{-1}(W)$, and $\sqrt{2w / m} = v > 0 \Longleftrightarrow w > 0$.
+Now,
+
+$$
+\left|\frac{dh^{-1}}{dw} \right| = \left|\frac{1}{2} \left(\frac{2w}{m} \right)^{-1 / 2} \cdot \frac{2}{m} \right| = \left|\frac{1}{m} \cdot m^{1 / 2} \cdot (2w)^{-1 / 2} \right| = (2mw)^{-1 / 2}.
+$$
+
+Thus,
+
+$$
+\begin{align*}
+    f_W(w) & = f_Y(h^{-1}(w)) \left|\frac{dh^{-1}}{dw} \right|\\
+    & = \left[
+    \begin{cases}
+        a \left(\left(\frac{2w}{m} \right)^{1 / 2} \right)^2 e^{-b \left((2w / m)^{1 / 2} \right)^2}, & w > 0,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot (2mw)^{-1 / 2}\\
+    & =
+    \begin{cases}
+        2^{1 / 2} a m^{-3 / 2} w^{1 / 2} \exp \left(-\frac{2}{m} \cdot \left(\frac{m}{2kT} \right) w \right), & w > 0,\\
+        0, & \text{elsewhere}
+    \end{cases}\\
+    & =
+    \begin{cases}
+        a \sqrt{\frac{2}{m^3}} w^{1 / 2} e^{-w / kT}, & w > 0,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
+
+To be more definitive about what exactly this density is, we can note that the constant $a$ must be whatever number makes $\int_{w = -\infty}^{w = \infty} f_W(w) dw = 1$.
+As $f_W(w)$ has the form of a gamma density function with $\alpha = \frac{3}{2}$ and $\beta = kT$, we can simply rewrite that density as
+
+$$
+f_W(w) =
+\begin{cases}
+    \frac{w^{(3 / 2) - 1} e^{-w / kT}}{(kT)^{3 / 2} \Gamma \left(\frac{3}{2} \right)}, & w > 0,\\
+    0, & \text{elsewhere,}
+\end{cases}
+$$
+
+confident in our knowledge that $a \sqrt{\frac{2}{m^3}} = \frac{1}{(kT)^{3 / 2} \Gamma \left(\frac{3}{2} \right)}$.
+
+---
+
+b) $E(W) = \alpha \beta = \frac{3kT}{2}$.

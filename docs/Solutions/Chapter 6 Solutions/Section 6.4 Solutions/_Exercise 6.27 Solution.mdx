@@ -1,0 +1,25 @@
+a) Letting $W = Y^{1 / 2} = h(Y)$, we have $Y = W^2 = h^{-1}(W)$, and since $y > 0$ is the support of $Y$, we will have $\sqrt{y} = w > 0$ as the support of $W$.
+Additionally, $\left|\frac{dh^{-1}}{dw} \right| = 2w$.
+Thus,
+
+$$
+\begin{align*}
+    f_W(w) & = f_Y(h^{-1}(w)) \left|\frac{dh^{-1}}{dw} \right|\\
+    & = \left[
+    \begin{cases}
+        \frac{1}{\beta} e^{-(w^2) / \beta}, & w > 0,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot 2w\\
+    & =
+    \begin{cases}
+        \frac{1}{\beta} 2w^{2 - 1} e^{-w^2 / \beta}, & w > 0,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
+
+This is exactly a Weibull density with $\alpha = \beta$ and $m = 2$.
+
+---
+
+b) $E(Y^{k / 2}) = E((Y^{1 / 2})^k) = E(W^k) = \beta^{k / 2} \Gamma \left(\frac{k}{2} + 1 \right)$

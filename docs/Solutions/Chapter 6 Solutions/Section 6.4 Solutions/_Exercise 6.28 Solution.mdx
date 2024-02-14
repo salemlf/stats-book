@@ -1,0 +1,24 @@
+Letting $U = -2\ln(Y) = h(Y)$, then $h(y)$ is a decreasing function, so $Y = e^{-U / 2} = h^{-1}(U)$, and
+
+$$
+0 \leq e^{-u / 2} \leq 1 \Longleftrightarrow -\infty < -\frac{u}{2} \leq 0 \Longleftrightarrow \infty > \frac{u}{2} \geq 0 \Longleftrightarrow \infty > u \geq 0.
+$$
+
+Also, $\left|\frac{dh^{-1}}{du} \right| = \left|-\frac{1}{2} e^{-u / 2} \right| = \frac{1}{2} e^{-u / 2}$.
+Thus,
+
+$$
+\begin{align*}
+    f_U(u) & = f_Y(h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        1, & 0 \leq u,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{2} e^{-u / 2}\\
+    & =
+    \begin{cases}
+        \frac{1}{2} e^{-u / 2}, & 0 \leq u,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
