@@ -1,0 +1,24 @@
+Letting $U = 2Y^2 + 3 = h(Y)$, we then have $Y = \sqrt{\frac{U - 3}{2}} = \left(\frac{U - 3}{2} \right)^{1 / 2} = h^{-1}(U)$, and
+
+$$
+1 \leq \sqrt{\frac{u - 3}{2}} \leq 5 \Longleftrightarrow 1 \leq \frac{u - 3}{2} \leq 25 \Longleftrightarrow 2 \leq u - 3 \leq 50 \Longleftrightarrow 5 \leq u \leq 53.
+$$
+
+Also note that $\left|\frac{dh^{-1}}{du} \right| = \left|\frac{1}{2} \left(\frac{u - 3}{2} \right)^{-1 / 2} \cdot \frac{1}{2} \right| = \left|2^{-3 / 2} (u - 3)^{-1 / 2} \right| = (8u - 24)^{-1 / 2} = \frac{1}{2 \sqrt{2(u - 3)}}$.
+Thus,
+
+$$
+\begin{align*}
+    f_U(u) & = f_Y(h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        \frac{1}{5 - 1}, & 5 \leq u \leq 53,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{2 \sqrt{2(u - 3)}}\\
+    & =
+    \begin{cases}
+        \frac{1}{8 \sqrt{2(u - 3)}}, & 5 \leq u \leq 53,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$

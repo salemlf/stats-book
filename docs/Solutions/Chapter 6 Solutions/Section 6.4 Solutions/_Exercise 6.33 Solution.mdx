@@ -1,0 +1,25 @@
+Letting $U = 5 - (Y / 2) = h(Y)$, we have $Y = 10 - 2U = h^{-1}(U)$, and
+
+$$
+0 \leq 10 - 2u \leq 1 \Longleftrightarrow -10 \leq -2u \leq -9 \Longleftrightarrow 5 \geq u \geq \frac{9}{2}.
+$$
+
+Additionally, $\left|\frac{dh^{-1}}{du} \right| = 2$.
+Thus,
+
+$$
+\begin{align*}
+    f_U(u) & = f_Y(h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        (3 / 2) (10 - 2u)^2 + (10 + 2u)\\
+        = 2(5 - u)(16 - 3u), & \frac{9}{2} \leq u \leq 5,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot 2\\
+    & =
+    \begin{cases}
+        4(5 - u)(16 - 3u), & \frac{9}{2} \leq u \leq 5,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
