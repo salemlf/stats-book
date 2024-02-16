@@ -1,0 +1,28 @@
+Fix $Y_1 = y_1$ so that $U = y_1 Y_2 = h(Y_2)$ and $Y_2 = U / y_1 = h^{-1}(U)$, with $0 \leq \frac{u}{y_1} \leq 1 \Longleftrightarrow 0 \leq u \leq y_1$.
+Also, $\left|\frac{dh^{-1}}{du} \right| = \frac{1}{y_1}$.
+Thus,
+
+$$
+\begin{align*}
+    f_{Y_1, U}(y_1, u) & = f_{Y_1, Y_2}(y_1, h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        1, & 0 \leq y_1 \leq 1, 0 \leq u \leq y_1,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{y_1}\\
+    & =
+    \begin{cases}
+        \frac{1}{y_1}, & 0 \leq u \leq y_1 \leq 1,\\
+        0, & \text{elsewhere.}
+    \end{cases}\\
+    \implies f_U(u) & = \int_{y_1 = -\infty}^{y_1 = \infty} f_{Y_1, U}(y_1, u) dy_1\\
+    & =
+    \begin{cases}
+        \int_{y_1 = u}^{y_1 = 1} \frac{1}{y_1} dy_1\\
+        = \ln(y_1) \biggr|_{y_1 = u}^{y_1 = 1}\\
+        = \ln(1) - \ln(u)\\
+        = -\ln(u), & 0 < u \leq 1,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$

@@ -1,0 +1,45 @@
+a) Letting $U = Y^2 = h(Y)$, we then have $Y = \sqrt{U} = h^{-1}(U)$, and $y = \sqrt{u} > 0 \Longleftrightarrow u > 0$.
+Also, $\left|\frac{dh^{-1}}{du} \right| = \frac{1}{2} u^{-1 / 2}$.
+Thus,
+
+$$
+\begin{align*}
+    f_U(u) & = f_Y(h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        \left(\frac{2(u^{1 / 2})}{\theta} \right) e^{-(u^{1 / 2})^2 / \theta}, & u > 0,\\
+        \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{2} u^{-1 / 2}\\
+    & =
+    \begin{cases}
+        \frac{1}{\theta} e^{-u / \theta}, & u > 0,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
+
+This is an exponential density with mean $\theta$.
+
+---
+
+b) Since $U$ is exponentially distributed, we have $E(U) = E(Y^2) = \theta$. But we still need $E(Y)$. Note the following:
+
+$$
+f_Y(y) =
+\begin{cases}
+    \left(\frac{2y}{\theta} \right) e^{-y^2 / \theta}, & y > 0,\\
+    0, & \text{elsewhere}
+\end{cases} =
+\begin{cases}
+    \frac{1}{\theta} 2y^{2 - 1} e^{-y^2 / \theta}, & y > 0,\\
+    0, & \text{elsewhere.}
+\end{cases}
+$$
+
+This is exactly a Weibull density with $\alpha = \theta$ and $m = 2$. So by Exercise 6.26(b),
+
+$$
+E(Y) = E(Y^1) = \theta^{1 / 2} \Gamma \left(\frac{1}{2} + 1 \right) = \sqrt{\theta} \cdot \frac{1}{2} \Gamma \left(\frac{1}{2} \right) = \frac{\sqrt{\pi \theta}}{2}.
+$$
+
+Thus, $V(Y) = E(Y^2) - E(Y)^2 = \theta - \frac{\pi \theta}{4} = \frac{\theta (4 - \pi)}{4}$.

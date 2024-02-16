@@ -1,0 +1,40 @@
+First note that, since $Y_1$ and $Y_2$ are independent Rayleigh-distributed random variables, we have
+
+$$
+f_{Y_1, Y_2}(y_1, y_2) = f_1(y_1) f_2(y_2) =
+\begin{cases}
+    \frac{4y_1 y_2}{\theta^2} e^{-(y_1^2 + y_2^2) / \theta}, & y_1 > 0, y_2 > 0,\\
+    0, & \text{elsewhere.}
+\end{cases}
+$$
+
+Fix $Y_1 = y_1$ so that $U = y_1^2 + Y_2^2 = h(Y_2)$ and $Y_2 = \sqrt{U - y_1^2} = h^{-1}(U)$, and $y_2 = \sqrt{u - y_1^2} > 0 \Longleftrightarrow u > y_1^2$.
+Additionally, $\left|\frac{dh^{-1}}{du} \right| = \frac{1}{2} (u - y_1^2)^{-1 / 2}$.
+Thus,
+
+$$
+\begin{align*}
+    f_{Y_1, U}(y_1, u) & = f_{Y_1, Y_2}(y_1, h^{-1}(u)) \left|\frac{dh^{-1}}{du} \right|\\
+    & = \left[
+    \begin{cases}
+        \frac{4y_1 (u - y_1^2)^{1 / 2}}{\theta^2} e^{-[y_1^2 + ((u - y_1^2)^{1 / 2})^2] / \theta}, & y_1 > 0, u > y_1^2,\\
+        0, & \text{elsewhere}
+    \end{cases} \right] \cdot \frac{1}{2} (u - y_1^2)^{-1 / 2}\\
+    & =
+    \begin{cases}
+        \frac{2y_1}{\theta^2} e^{-u / \theta}, & 0 < y_1 < \sqrt{u},\\
+        0, & \text{elsewhere}
+    \end{cases}\\
+    \implies f_U(u) & = \int_{y_1 = -\infty}^{y_1 = \infty} f_{Y_1, U}(y_1, u) dy_1\\
+    & =
+    \begin{cases}
+        \int_{y_1 = 0}^{y_1 = \sqrt{u}} \frac{2y_1}{\theta^2} e^{-u / \theta} dy_1\\
+        = \frac{1}{\theta^2} e^{-u / \theta} y_1^2 \biggr|_{y_1 = 0}^{y_1 = \sqrt{u}}\\
+        = \frac{1}{\theta^2} e^{-u / \theta} (\sqrt{u})^2 - \frac{1}{\theta^2} e^{-u / \theta} (0)^2\\
+        = \frac{ue^{-u / \theta}}{\theta^2}, & 0 < u,\\
+        0, & \text{elsewhere.}
+    \end{cases}
+\end{align*}
+$$
+
+This is a gamma density with $\alpha = 2$ and $\beta = \theta$.
